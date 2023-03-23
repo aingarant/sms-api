@@ -10,7 +10,7 @@ app.use(morgan("dev"));
 
 require("dotenv").config();
 
-const uri = process.env.MONGO_URI;
+// const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
 app.get("/", async(req, res) => res.send("Hello World!"));
