@@ -22,17 +22,17 @@ app.post("/", async (req, res) => {
 
     const newUser = req.body
 
-    const result = await db.collection("users").insertOne(newUser)
+    const result = await db.collection("messages").insertOne(newUser)
 
     if (result.acknowledged) {
-      res
-        .status(201)
-        .json({ message: "User created successfully", user: newUser })
+      res.status(201)
+      // .json({ message: "User created successfully", user: newUser })
     } else {
       res.status(500).json({ message: "Failed to create user" })
     }
   } catch (error) {
     console.error(error)
-    res.status(500).json({ message: "An error occurred" })
+    res.status(500)
+    // .json({ message: "An error occurred" })
   }
 })
